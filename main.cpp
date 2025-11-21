@@ -41,6 +41,7 @@ BOOL WINAPI DllMain(HINSTANCE, DWORD fdwReason, LPVOID) {
 			InitAndLoadConfig("NFSPSMenuLib_gcp.toml");
 			NyaHooks::PlaceD3DHooks();
 			NyaHooks::aEndSceneFuncs.push_back(D3DHookMain);
+			NyaHooks::aD3DResetFuncs.push_back(OnD3DReset);
 			NyaHooks::PlaceWndProcHook();
 			NyaHooks::aWndProcFuncs.push_back(WndProcHook);
 			NyaHooks::PlaceInputBlockerHook();
