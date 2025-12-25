@@ -38,7 +38,8 @@ BOOL WINAPI DllMain(HINSTANCE, DWORD fdwReason, LPVOID) {
 				return TRUE;
 			}
 
-			InitAndLoadConfig("NFSPSMenuLib_gcp.toml");
+			if (!InitAndLoadConfig("NFSPSMenuLib_gcp.toml")) return TRUE;
+
 			NyaHooks::PlaceD3DHooks();
 			NyaHooks::aEndSceneFuncs.push_back(D3DHookMain);
 			NyaHooks::aD3DResetFuncs.push_back(OnD3DReset);

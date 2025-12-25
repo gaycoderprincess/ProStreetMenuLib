@@ -29,7 +29,7 @@ target_include_directories(NFSPSMenuLib PUBLIC ../nya-common/3rdparty)
 target_include_directories(NFSPSMenuLib PUBLIC ../nya-common/3rdparty/imgui)
 target_include_directories(NFSPSMenuLib PUBLIC ../nya-common/3rdparty/imgui/backends)
 target_include_directories(NFSPSMenuLib PUBLIC ../nya-common-nfsps)
-target_include_directories(NFSPSMenuLib PUBLIC ../FlatOutUCMenuLib)
+target_include_directories(NFSPSMenuLib PUBLIC ../CwoeeMenuLib)
 target_link_options(NFSPSMenuLib PRIVATE "-Wl,--exclude-all-symbols")
 
 set_target_properties(NFSPSMenuLib PROPERTIES PREFIX "")
