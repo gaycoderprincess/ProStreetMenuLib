@@ -10,7 +10,7 @@
 #include "include/chloemenulib.h"
 
 void DisableKeyboardInput(bool disable) {
-	NyaHooks::bInputsBlocked = disable;
+	NyaHooks::InputBlockerHook::bInputsBlocked = disable;
 }
 
 void UpdateD3DProperties() {
@@ -41,11 +41,11 @@ BOOL WINAPI DllMain(HINSTANCE, DWORD fdwReason, LPVOID) {
 			if (!InitAndLoadConfig("NFSPSMenuLib_gcp.toml")) return TRUE;
 
 			NyaHooks::PlaceD3DHooks();
-			NyaHooks::aEndSceneFuncs.push_back(D3DHookMain);
-			NyaHooks::aD3DResetFuncs.push_back(OnD3DReset);
-			NyaHooks::PlaceWndProcHook();
-			NyaHooks::aWndProcFuncs.push_back(WndProcHook);
-			NyaHooks::PlaceInputBlockerHook();
+			NyaHooks::D3DEndSceneHook::aFunctions.push_back(D3DHookMain);
+			NyaHooks::D3DResetHook::aFunctions.push_back(OnD3DReset);
+			NyaHooks::WndProcHook::Init();
+			NyaHooks::WndProcHook::aFunctions.push_back(WndProcHook);
+			NyaHooks::InputBlockerHook::Init();
 		} break;
 		default:
 			break;
