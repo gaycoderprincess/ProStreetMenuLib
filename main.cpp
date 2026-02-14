@@ -14,10 +14,8 @@ void DisableKeyboardInput(bool disable) {
 }
 
 void UpdateD3DProperties() {
-	auto& gD3DDevice = *(IDirect3DDevice9***)0xAC6ED4;
-
-	g_pd3dDevice = *gD3DDevice;
-	ghWnd = *(HWND*)0xAC6ED8;
+	g_pd3dDevice = *GameD3DDevice;
+	ghWnd = GameWindow;
 
 	// todo this can prolly be done better
 	RECT rect;
